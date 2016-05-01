@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<ruleset name="EPCS">
+	<description>EPCS coding standard.</description>
+
+	<!-- General -->
+
+	<rule ref="Generic.PHP.DisallowShortOpenTag.EchoFound">
+		<severity>0</severity>
+	</rule>
+
+	<!-- The closing ?> tag MUST be omitted from files containing only PHP. -->
+	<rule ref="Zend.Files.ClosingTag"/>
+
+	<!-- PHP code MUST use only UTF-8 without BOM. -->
+	<rule ref="Generic.Files.ByteOrderMark"/>
+
+	<!-- PHP keywords MUST be in lower case. -->
+	<rule ref="Generic.PHP.LowerCaseKeyword"/>
+
+	<!-- Class constants MUST be declared in all upper case with underscore separators. -->
+	<rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+
+	<!-- All PHP files MUST use the Unix LF (linefeed) line ending. -->
+	<rule ref="Generic.Files.LineEndings">
+		<properties>
+			<property name="eolChar" value="\n"/>
+		</properties>
+	</rule>
+
+	<!-- Lines -->
+	<rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" value="85"/>
+			<property name="absoluteLineLimit" value="0"/>
+		</properties>
+	</rule>
+
+	<!-- There MUST NOT be trailing whitespace at the end of non-blank lines. -->
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+		<properties>
+			<property name="ignoreBlankLines" value="true"/>
+		</properties>
+	</rule>
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.StartFile">
+		<severity>0</severity>
+	</rule>
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.EndFile">
+		<severity>0</severity>
+	</rule>
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines">
+		<severity>0</severity>
+	</rule>
+
+	<!-- There MUST NOT be more than one statement per line. -->
+	<rule ref="Generic.Formatting.DisallowMultipleStatements"/>
+
+	<!-- In the argument list, there MUST NOT be a space before each comma, and there MUST be one space after each comma. -->
+	<rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing">
+		<properties>
+			<property name="equalsSpacing" value="1"/>
+		</properties>
+	</rule>
+
+	<!-- Class/Methods -->
+
+	<!-- Method names MUST be declared in camelCase(). -->
+	<rule ref="Generic.NamingConventions.CamelCapsFunctionName">
+		<properties>
+			<property name="strict" value="false"/>
+		</properties>
+	</rule>
+
+	<!-- Visibility MUST be declared on all methods. -->
+	<rule ref="Squiz.Scope.MethodScope"/>
+	<rule ref="Squiz.WhiteSpace.ScopeKeywordSpacing"/>
+
+	<!-- Class names MUST be declared in StudlyCaps. -->
+	<rule ref="Squiz.Classes.ValidClassName"/>
+
+	<!-- Method names MUST NOT be declared with a space after the method name.
+		 The opening brace MUST go on its own line, and the closing brace MUST go on the next line following the body.
+		 There MUST NOT be a space after the opening parenthesis, and there MUST NOT be a space before the closing parenthesis. -->
+	<rule ref="Squiz.Functions.FunctionDeclaration"/>
+	<rule ref="Squiz.Functions.LowercaseFunctionKeywords"/>
+
+	<!-- Method arguments with default values MUST go at the end of the argument list. -->
+	<rule ref="PEAR.Functions.ValidDefaultValue"/>
+
+	<!-- Argument lists MAY be split across multiple lines, where each subsequent line is indented once. When doing so, the first item in the list MUST be on the next line, and there MUST be only one argument per line. When the argument list is split across multiple lines, the closing parenthesis and opening brace MUST be placed together on their own line with one space between them. -->
+	<rule ref="Squiz.Functions.MultiLineFunctionDeclaration"/>
+
+	<!-- When making a method or function call, there MUST NOT be a space between the method or 
+		 function name and the opening parenthesis, there MUST NOT be a space after the opening parenthesis,
+		 and there MUST NOT be a space before the closing parenthesis.
+		 In the argument list, there MUST NOT be a space before each comma, and there MUST be one space after each comma.
+		 Argument lists MAY be split across multiple lines, where each subsequent line is indented once.
+		 When doing so, the first item in the list MUST be on the next line, and there MUST be only one argument per line. -->
+	<rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
+	<rule ref="PEAR.Functions.FunctionCallSignature">
+		<properties>
+			<property name="indent" value="1"/>
+			<property name="allowMultipleArguments" value="false"/>
+		</properties>
+	</rule>
+
+	<!-- The body of each structure MUST be enclosed by braces.
+		 This standardizes how the structures look, and reduces the likelihood of introducing
+		 errors as new lines get added to the body. -->
+	<rule ref="Generic.ControlStructures.InlineControlStructure"/>
+
+	<!-- foreach, if, ... -->
+	<rule ref="Squiz.ControlStructures.ForEachLoopDeclaration"/>
+	<rule ref="Squiz.ControlStructures.ForLoopDeclaration"/>
+	<rule ref="Squiz.ControlStructures.LowercaseDeclaration"/>
+	<rule ref="EPCS.ControlStructures.ControlSignature"/>
+
+	<rule ref="Squiz.WhiteSpace.OperatorSpacing"/>
+	<rule ref="EPCS.Commenting.FileComment"/>
+
+	<rules ref="Squiz.Commenting.FunctionComment"/>
+
+</ruleset>
+
